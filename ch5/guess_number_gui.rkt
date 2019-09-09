@@ -42,13 +42,13 @@
 ;; the lower value and a guess minus one.
 (define (smaller w)
   (interval (interval-small w)
-            (min (interval-small w) (sub1 (guess w)))))
+            (max (interval-small w) (sub1 (guess w)))))
 
 ;; Returns an interval where the
 ;; lower bound is set to the min of
 ;; the upper value and a guess plus one.
 (define (bigger w)
-  (interval (max (interval-big w) (add1 (guess w)))
+  (interval (min (interval-big w) (add1 (guess w)))
             (interval-big w)))
 
 ;; Overlays the game UI on the empty scene.
